@@ -1,10 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="utf-8"/>
+    <title>Index page</title>
+
 </head>
+
 <body>
-$END$
+<a href="ajouterproduit">Ajouter Produit</a>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Reference</th>
+            <th>Designation</th>
+            <th>Prix</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="produit:${listProduits}">
+            <td th:text="${produit.getId()}"></td>
+            <td th:text="${produit.getDescription()}"></td>
+            <td th:text="${produit.getPrice()}"></td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
 </body>
 </html>
